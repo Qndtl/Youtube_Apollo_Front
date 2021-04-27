@@ -1,0 +1,9 @@
+.children {
+  margin-left: 60px;
+}
+
+@media screen and (max-width: 768px) {
+  .children {
+    margin-left: 0px;
+  }
+}

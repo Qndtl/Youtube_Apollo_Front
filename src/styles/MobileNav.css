@@ -1,0 +1,26 @@
+.mobileNav {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cross svg{
+  fill: white;
+  position: absolute;
+  top: 30px;
+  right: 20px;
+}
+
+.mobileLi {
+  color: white;
+  list-style: none;
+  font-size: 3.5rem;
+  margin: 50px 0px;
+}

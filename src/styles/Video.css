@@ -1,0 +1,55 @@
+video {
+  width: 280px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 12px;
+}
+
+.text-container {
+  height: 90px;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: pink;
+  margin-right: 10px;
+}
+
+.row {
+  height: 50%;
+  display: flex;
+  align-items: center;
+
+}
+
+.row:last-child {
+  padding-left: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.username, .view-count {
+  color: grey;
+}
+
+@media screen and (max-width: 768px){
+  video {
+    width: 100%;
+  }
+  .container {
+    margin: 0px;
+    margin-top: 20px;
+  }
+  .container:first-child{
+    margin-top:0px;
+  }
+  .row:first-child{
+    margin-top: 3px;
+  }
+}
