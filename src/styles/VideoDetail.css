@@ -1,4 +1,11 @@
+.video-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .video {
+  max-width: 2000px;
   width: 100%;
 }
 
@@ -18,6 +25,10 @@
 
 .video-title {
   margin: 10px 0px;
+  width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .video-title span {
@@ -89,6 +100,16 @@
   color: #909090;
 }
 
+.video-description {
+  width:100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	word-wrap:break-word;
+}
+
 .video-subscribe__button {
   width: 72px;
   height: 38px;
@@ -101,5 +122,13 @@
 }
 
 .video-description__container {
-  height: 175px;
+  padding-bottom: 15px;
+}
+
+.toggle-more {
+  display: block;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: gray;
 }

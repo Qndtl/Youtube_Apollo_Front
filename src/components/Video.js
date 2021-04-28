@@ -3,11 +3,17 @@ import '../styles/Video.css';
 
 export default function Video({ id, src, title, description, username, userId, avatar }) {
   const mouseEnter = (e) => {
-    e.target.play();
+    const playPromise = e.target.play();
+    if (playPromise !== undefined) {
+      playPromise.then(() => { return }).catch((err) => console.log(err.message))
+    }
   }
 
   const mouseLeave = (e) => {
-    e.target.pause();
+    const pausePromise = e.target.pause();
+    if (pausePromise !== undefined) {
+      pausePromise.then(() => { return }).catch((err) => console.log(err.message))
+    }
   }
   return (
     <div className="container">

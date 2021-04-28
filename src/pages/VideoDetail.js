@@ -29,7 +29,9 @@ const VideoDetail = () => {
     <>
       {
         loading ? <h1>Loading...</h1> : <>
-          <video className="video" src={data.video.file} controls controlsList="nodownload" autoPlay></video>
+          <div className="video-container">
+            <video className="video" src={data.video.file} controls controlsList="nodownload" autoPlay></video>
+          </div>
           <div className="video-detail__wrapper">
             <VideoDetails title={data.video.title} />
             <VideoUser
