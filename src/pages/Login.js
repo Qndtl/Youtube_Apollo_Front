@@ -1,4 +1,4 @@
-import { gql, useMutation } from "@apollo/client"
+import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
 import { useHistory } from "react-router";
 import { logUserIn } from "../apollo/variables";
@@ -33,7 +33,7 @@ export default function Login() {
       }
     } else {
       logUserIn(token);
-      history.push('/')
+      history.push('/');
     }
   }
   return (

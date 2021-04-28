@@ -1,13 +1,21 @@
+import { Link } from 'react-router-dom';
 import '../styles/Video.css';
 
-export default function Video({ src, title, description, username, userId, avatar }) {
+export default function Video({ id, src, title, description, username, userId, avatar }) {
+  const mouseEnter = (e) => {
+    e.target.play();
+  }
+
+  const mouseLeave = (e) => {
+    e.target.pause();
+  }
   return (
     <div className="container">
-      <video src={src} />
+      <Link to={`/video/${id}`}><video src={src} muted onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} /></Link>
       <div className="text-container">
         <div className="row">
           <img className="avatar" src={avatar} alt={avatar} />
-          <div className="title">{title}</div>
+          <Link to={`/video/${id}`}><div className="title">{title}</div></Link>
         </div>
         <div className="row">
           <div className="username">{username}</div>

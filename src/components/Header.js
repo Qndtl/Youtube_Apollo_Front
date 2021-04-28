@@ -22,7 +22,16 @@ export default function Header({ setPop }) {
           <Link to='/'><div className="logo"><Youtube size="30" /><h1>Youtube</h1></div></Link>
           <ul className="navUl">
             {
-              isLoggedIn ? <><span>{data?.me?.username}</span><Button text="Logout" color="red" onClick={() => logUserOut()} /><span><Link to="/upload">Upload</Link></span></> : <>
+              isLoggedIn ? <>
+                <img src={data?.me?.avatar} alt={data?.me?.avatar} className="header-avatar" />
+                <span className="header-username">{data?.me?.username}</span>
+                <span className="header-upload">
+                  <Link to="/upload">
+                    <Button text="Upload" color="green" />
+                  </Link>
+                </span>
+                <Button text="Logout" color="red" onClick={() => logUserOut()} />
+              </> : <>
                 <Link to='/signup'><li className="navLi"><Button text="Sign Up" color="skyblue" /></li></Link>
                 <Link to='/login'><li className="navLi"><Button text="Login" color="green" /></li></Link>
               </>

@@ -9,6 +9,7 @@ import { isloggedInVar } from './apollo/variables';
 import Upload from './pages/Upload';
 import SidebarLayout from './components/SidebarLayout';
 import { useState } from 'react';
+import VideoDetail from './pages/VideoDetail';
 
 function App() {
   const isLoggedIn = useReactiveVar(isloggedInVar);
@@ -38,6 +39,9 @@ function App() {
               <Upload />
             </SidebarLayout> : <Redirect to='/' />
           }
+        </Route>
+        <Route path="/video/:id">
+          <VideoDetail />
         </Route>
       </Switch>
     </Router>

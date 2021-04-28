@@ -1,15 +1,18 @@
-video {
-  width: 280px;
-}
-
 .container {
   display: flex;
   flex-direction: column;
-  margin: 12px;
+  margin: 1%;
 }
 
 .text-container {
   height: 90px;
+}
+
+.title {
+  width: 235px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .avatar {
@@ -36,6 +39,44 @@ video {
 
 .username, .view-count {
   color: grey;
+}
+
+@media screen and (min-width: 1801px) {
+  .container {
+    width: 18%;
+    margin: 1%;
+  }
+  video {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1800px) and (min-width: 1301px) {
+  .container {
+    width: 23%;
+    margin: 1%;
+  }
+  video {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1300px) and (min-width: 1024px) {
+  .container {
+    width: 31.3%;
+  }
+  video {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1023px) and (min-width: 769px) {
+  .container {
+    width: 48%;
+  }
+  video {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 768px){

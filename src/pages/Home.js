@@ -26,6 +26,7 @@ export default function Home() {
       {
         data?.videos?.map(video => <Video
           key={video.id}
+          id={video.id}
           src={video.file}
           title={video.title}
           description={video.description}
