@@ -14,7 +14,7 @@ const LOGIN = gql`
   }
 `;
 
-export default function Login() {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailErr, setEmailErr] = useState(null);
@@ -46,3 +46,5 @@ export default function Login() {
     </form>
   )
 }
+
+export default Login;

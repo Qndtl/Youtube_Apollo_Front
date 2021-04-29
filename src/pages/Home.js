@@ -18,7 +18,7 @@ export const VIDEOS = gql`
   }
 `;
 
-export default function Home() {
+const Home = () => {
   const { data } = useQuery(VIDEOS);
   console.log(data)
   return (
@@ -29,7 +29,6 @@ export default function Home() {
           id={video.id}
           src={video.file}
           title={video.title}
-          description={video.description}
           username={video.user.username}
           userId={video.user.id}
           avatar={video.user.avatar} />)
@@ -37,3 +36,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home;

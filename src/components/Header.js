@@ -8,7 +8,7 @@ import Button from './Button';
 import { Hamburger, ThinHamburger, Youtube } from './Icons';
 import MobileNav from './MobileNav';
 
-export default function Header({ setPop }) {
+const Header = ({ setPop }) => {
   const isLoggedIn = useReactiveVar(isloggedInVar);
   const [clicked, setClicked] = useState(false);
   const { data } = useUser();
@@ -48,3 +48,5 @@ export default function Header({ setPop }) {
     </>
   )
 }
+
+export default Header;

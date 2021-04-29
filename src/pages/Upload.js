@@ -16,7 +16,7 @@ const UPLOAD = gql`
   }
 `;
 
-export default function Upload() {
+const Upload = () => {
   const [file, setFile] = useState(null);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -41,3 +41,5 @@ export default function Upload() {
     </div>
   )
 }
+
+export default Upload;

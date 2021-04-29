@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import '../styles/Video.css';
 
-export default function Video({ id, src, title, description, username, userId, avatar }) {
+const Video = ({ id, src, title, username, userId, avatar }) => {
   const mouseEnter = (e) => {
     const playPromise = e.target.play();
     if (playPromise !== undefined) {
@@ -31,3 +31,5 @@ export default function Video({ id, src, title, description, username, userId, a
     </div>
   )
 }
+
+export default Video;

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import '../styles/MobileNav.css';
 import { Cross } from './Icons';
 
-export default function MobileNav({ setClicked }) {
+const MobileNav = ({ setClicked }) => {
   return (
     <nav className="mobileNav">
       <div className="cross" onClick={() => setClicked(false)}><Cross /></div>
@@ -13,3 +13,5 @@ export default function MobileNav({ setClicked }) {
     </nav>
   )
 }
+
+export default MobileNav;
