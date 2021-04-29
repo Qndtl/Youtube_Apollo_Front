@@ -15,7 +15,10 @@ const VIDEO = gql`
       user{
         id,
         username,
-        avatar
+        avatar,
+        isMe,
+        isFollowing,
+        totalFollowerNum
       }
     }
   }
@@ -24,20 +27,28 @@ const VIDEO = gql`
 const VideoDetail = () => {
   const { id } = useParams();
   const { data, loading } = useQuery(VIDEO, { variables: { id: parseInt(id) } });
+  if (!loading) { console.log(data) }
+  if (loading) {
+    return <h1>Loading video...</h1>
+  }
 
   return (
     <>
       {
-        loading ? <h1>Loading...</h1> : <>
+        <>
           <div className="video-container">
             <video className="video" src={data.video.file} controls controlsList="nodownload" autoPlay></video>
           </div>
           <div className="video-detail__wrapper">
             <VideoDetails title={data.video.title} />
             <VideoUser
+              userId={data.video.user.id}
               avatar={data.video.user.avatar}
               username={data.video.user.username}
-              description={data.video.description} />
+              description={data.video.description}
+              followers={data.video.user.totalFollowerNum}
+              isMe={data.video.user.isMe}
+              isFollowing={data.video.user.isFollowing} />
             <VideoComment data={data} />
           </div>
         </>

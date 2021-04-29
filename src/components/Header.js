@@ -23,8 +23,12 @@ const Header = ({ setPop }) => {
           <ul className="navUl">
             {
               isLoggedIn ? <>
-                <img src={data?.me?.avatar} alt={data?.me?.avatar} className="header-avatar" />
-                <span className="header-username">{data?.me?.username}</span>
+                <Link to={`/user/${data?.me?.id}`}>
+                  <img src={data?.me?.avatar} alt={data?.me?.avatar} className="header-avatar" />
+                </Link>
+                <Link to={`/user/${data?.me?.id}`}>
+                  <span className="header-username">{data?.me?.username}</span>
+                </Link>
                 <span className="header-upload">
                   <Link to="/upload">
                     <Button text="Upload" color="green" />

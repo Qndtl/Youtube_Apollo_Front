@@ -10,6 +10,7 @@ import Upload from './pages/Upload';
 import SidebarLayout from './components/SidebarLayout';
 import { useState } from 'react';
 import VideoDetail from './pages/VideoDetail';
+import UserDetail from './pages/UserDetail';
 
 const App = () => {
   const isLoggedIn = useReactiveVar(isloggedInVar);
@@ -43,6 +44,11 @@ const App = () => {
         <Route path="/video/:id">
           <SidebarLayout pop={pop} setPop={setPop}>
             <VideoDetail />
+          </SidebarLayout>
+        </Route>
+        <Route path="/user/:id">
+          <SidebarLayout pop={pop} setPop={setPop}>
+            <UserDetail />
           </SidebarLayout>
         </Route>
       </Switch>

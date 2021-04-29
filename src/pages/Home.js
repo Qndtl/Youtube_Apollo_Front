@@ -8,7 +8,7 @@ export const VIDEOS = gql`
       id,
       file,
       title,
-      description,
+      thumbnail,
       user{
         id,
         username,
@@ -19,16 +19,22 @@ export const VIDEOS = gql`
 `;
 
 const Home = () => {
-  const { data } = useQuery(VIDEOS);
-  console.log(data)
+  const { data, loading } = useQuery(VIDEOS);
+  if (!loading) { console.log(data) }
+
+  if (loading) {
+    return <h1>Loading...</h1>
+  }
+
   return (
     <div className="videos">
       {
-        data?.videos?.map(video => <Video
+        data.videos.map((video, i) => <Video
           key={video.id}
           id={video.id}
           src={video.file}
           title={video.title}
+          thumnail={video.thumbnail}
           username={video.user.username}
           userId={video.user.id}
           avatar={video.user.avatar} />)

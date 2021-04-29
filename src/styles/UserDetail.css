@@ -1,0 +1,82 @@
+.channel-image {
+  height: 15vw;
+  margin-bottom: 10px;
+  background-color: yellow;
+}
+
+.channel-header {
+  height: 150px;
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+}
+
+.channel-user__container {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  max-width: 640px;
+  padding-left: 50px;
+}
+
+.channel-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: pink;
+  margin-right: 20px;
+}
+
+.channel-user {
+  display: flex;
+  flex-direction: column;
+}
+
+.channel-user__username {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.channel-user__followers {
+  font-size: 0.85rem;
+  color: grey;
+}
+
+.channel-button__container {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  max-width: 640px;
+  padding-right: 50px;
+}
+
+.subscribe__button {
+  width: 72px;
+  height: 38px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  background-color: #CC0000;
+  font-size: 0.89rem;
+  color: white;
+}
+
+.cancel-subscribe {
+  background-color: #c0c0c0;
+  color: #f9f9f9;
+}
+
+.channel-videos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px){
+  .channel-user__container{
+    padding-left: 10px;
+  }
+  .channel-button__container{
+    padding-right: 10px;
+  }
+}
