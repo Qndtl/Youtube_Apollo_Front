@@ -1,10 +1,12 @@
 import { useMutation } from "@apollo/client";
 import { useState } from "react"
 import { Link } from "react-router-dom";
+import EditBtn from "../../components/EditBtn";
 import SubscribeBtn from "../../components/SubscribeBtn";
 import { FOLLOW } from "../../sharedGQL/followGql";
+import "../../styles/EditBtn.css";
 
-const VideoUser = ({ userId, avatar, username, description, isMe, isFollowing, followers }) => {
+const VideoUser = ({ videoId, userId, avatar, username, description, isMe, isFollowing, followers, title }) => {
   const [more, setMore] = useState(false);
   const [followMutation, { loading }] = useMutation(FOLLOW);
 
@@ -70,7 +72,9 @@ const VideoUser = ({ userId, avatar, username, description, isMe, isFollowing, f
       </div>
       <div className="video-column video-subscribe__container">
         {
-          isMe ? null : <SubscribeBtn isFollowing={isFollowing} onClick={toggleSubscribe} loading={loading} />
+          isMe ? <>
+            <EditBtn title={title} videoId={videoId} isMe={isMe} description={description} />
+          </> : <SubscribeBtn isFollowing={isFollowing} onClick={toggleSubscribe} loading={loading} />
         }
       </div>
     </div>

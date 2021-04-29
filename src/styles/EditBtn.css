@@ -1,0 +1,10 @@
+.edit__button {
+  width: 72px;
+  height: 38px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  background-color: #63cc00;
+  font-size: 0.89rem;
+  color: white;
+}
