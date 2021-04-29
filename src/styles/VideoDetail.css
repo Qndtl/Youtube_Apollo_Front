@@ -133,3 +133,13 @@
   font-size: 0.9rem;
   color: gray;
 }
+
+.liked svg{
+  fill: #065FD4;
+}
+
+.like-num {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: gray;
+}

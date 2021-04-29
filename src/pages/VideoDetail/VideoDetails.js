@@ -1,6 +1,47 @@
+import { gql, useMutation } from "@apollo/client";
 import { LikeIcon } from "../../components/Icons";
 
-const VideoDetails = ({ title }) => {
+const TOGGLE_LIKE = gql`
+  mutation toggleLike($videoId: Int!){
+    toggleLike(videoId: $videoId) {
+      ok,
+      error
+    }
+  }
+`;
+
+const VideoDetails = ({ videoId, title, isLiked, totalLikeNum }) => {
+  const updateToggleLike = (cache, result) => {
+    const { data: { toggleLike: { ok } } } = result;
+    if (ok) {
+      const videosId = `Video:${videoId}`;
+      cache.modify({
+        id: videosId,
+        fields: {
+          isLiked(prev) {
+            return !prev;
+          },
+          totalLikeNum(prev) {
+            if (isLiked) {
+              return prev - 1;
+            } else {
+              return prev + 1;
+            }
+          }
+        }
+      })
+    }
+  }
+
+  const clickLike = async () => {
+    await toggleLikeMutation();
+  }
+
+  const [toggleLikeMutation] = useMutation(TOGGLE_LIKE, {
+    variables: { videoId },
+    update: updateToggleLike
+  })
+
   return (
     <div className="video-details">
       <div className="video-title">
@@ -8,10 +49,12 @@ const VideoDetails = ({ title }) => {
       </div>
       <div className="video-info">
         <span>조회수 0회 &#183; 2020.8.16</span>
-        <div className="video-info__icons">
+        <div
+          className={isLiked ? "video-info__icons liked" : "video-info__icons"}
+          onClick={clickLike}>
           <LikeIcon />
-          <div className="like-num">like num</div>
         </div>
+        <div className="like-num">{totalLikeNum}</div>
       </div>
     </div>
   )

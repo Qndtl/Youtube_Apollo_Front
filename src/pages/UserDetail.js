@@ -1,5 +1,4 @@
 import { gql, useMutation, useQuery } from "@apollo/client";
-import { useState } from "react";
 import { useParams } from "react-router";
 import SubscribeBtn from "../components/SubscribeBtn";
 import Video from "../components/Video";

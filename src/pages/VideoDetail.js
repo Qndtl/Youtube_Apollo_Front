@@ -12,6 +12,8 @@ const VIDEO = gql`
       file,
       title,
       description,
+      isLiked,
+      totalLikeNum,
       user{
         id,
         username,
@@ -40,7 +42,7 @@ const VideoDetail = () => {
             <video className="video" src={data.video.file} controls controlsList="nodownload" autoPlay></video>
           </div>
           <div className="video-detail__wrapper">
-            <VideoDetails title={data.video.title} />
+            <VideoDetails videoId={data.video.id} title={data.video.title} isLiked={data.video.isLiked} totalLikeNum={data.video.totalLikeNum} />
             <VideoUser
               userId={data.video.user.id}
               avatar={data.video.user.avatar}
