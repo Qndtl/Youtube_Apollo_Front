@@ -38,7 +38,7 @@ const Header = ({ setPop }) => {
                 </span>
                 <Button text="Logout" color="red" onClick={() => logUserOut()} />
               </> : <>
-                <Link to='/signup'><li className="navLi"><Button text="Sign Up" color="skyblue" /></li></Link>
+                <Link to='/signup'><li className="navLi"><Button text="Join" color="skyblue" /></li></Link>
                 <Link to='/login'><li className="navLi"><Button text="Login" color="green" /></li></Link>
               </>
             }

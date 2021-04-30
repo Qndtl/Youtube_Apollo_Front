@@ -9,6 +9,7 @@ export const VIDEO = gql`
       description,
       isLiked,
       totalLikeNum,
+      totalCommentNum,
       user{
         id,
         username,
@@ -16,6 +17,16 @@ export const VIDEO = gql`
         isMe,
         isFollowing,
         totalFollowerNum
+      },
+      comments {
+        id,
+        text,
+        user {
+          id,
+          username,
+          avatar,
+          isMe
+        }
       }
     }
   }

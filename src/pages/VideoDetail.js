@@ -38,7 +38,7 @@ const VideoDetail = () => {
               followers={data.video.user.totalFollowerNum}
               isMe={data.video.user.isMe}
               isFollowing={data.video.user.isFollowing} />
-            <VideoComment data={data} />
+            <VideoComment videoId={data.video.id} comments={data.video.comments} totalCommentNum={data.video.totalCommentNum} />
           </div>
         </>
       }

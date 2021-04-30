@@ -143,3 +143,13 @@
   font-weight: 600;
   color: gray;
 }
+
+.video-comment__container {
+  width: 95%;
+}
+
+@media screen and (max-width: 768px) {
+  .video-column:nth-child(2){
+    width: 75%;
+  }
+}
