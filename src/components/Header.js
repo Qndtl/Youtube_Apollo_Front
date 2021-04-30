@@ -7,6 +7,7 @@ import '../styles/header.css';
 import Button from './Button';
 import { Hamburger, ThinHamburger, Youtube } from './Icons';
 import MobileNav from './MobileNav';
+import SearchInput from './SearchInput';
 
 const Header = ({ setPop }) => {
   const isLoggedIn = useReactiveVar(isloggedInVar);
@@ -20,6 +21,7 @@ const Header = ({ setPop }) => {
             <ThinHamburger size="19" />
           </div>
           <Link to='/'><div className="logo"><Youtube size="30" /><h1>Youtube</h1></div></Link>
+          <SearchInput />
           <ul className="navUl">
             {
               isLoggedIn ? <>

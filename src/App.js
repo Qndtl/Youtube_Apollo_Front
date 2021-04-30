@@ -12,6 +12,7 @@ import { useState } from 'react';
 import VideoDetail from './pages/VideoDetail';
 import UserDetail from './pages/UserDetail';
 import EditVideo from './pages/EditVideo';
+import SearchResult from './pages/SearchResult';
 
 const App = () => {
   const isLoggedIn = useReactiveVar(isloggedInVar);
@@ -55,6 +56,11 @@ const App = () => {
         <Route path="/edit/video/:id">
           <SidebarLayout pop={pop} setPop={setPop}>
             <EditVideo />
+          </SidebarLayout>
+        </Route>
+        <Route path="/search">
+          <SidebarLayout pop={pop} setPop={setPop}>
+            <SearchResult />
           </SidebarLayout>
         </Route>
       </Switch>

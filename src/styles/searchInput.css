@@ -1,0 +1,31 @@
+.search-container {
+  position: absolute;
+  top: 15px;
+  left: 25vw;
+}
+
+.search-form {
+  width: 30vw;
+}
+
+.search-input {
+  padding-left: 10px;
+  height: 25px;
+  font-size: 1.1rem;
+}
+
+.search-button {
+  visibility: hidden;
+}
+
+@media screen and (max-width: 840px){
+  .search-form {
+    width: 25vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .search-container {
+    display: none;
+  }
+}

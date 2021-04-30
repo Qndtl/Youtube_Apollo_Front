@@ -1,8 +1,7 @@
-import { gql, useMutation, useQuery } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router";
 import SubscribeBtn from "../components/SubscribeBtn";
 import Video from "../components/Video";
-import { FOLLOW } from "../sharedGQL/followGql";
 import "../styles/UserDetail.css";
 
 const GET_USER = gql`
@@ -27,33 +26,6 @@ const GET_USER = gql`
 const UserDetail = () => {
   const { id } = useParams();
   const { data, loading } = useQuery(GET_USER, { variables: { id: parseInt(id) } });
-  const [followMutation, { loading: mutationLoading }] = useMutation(FOLLOW);
-
-  const updateFollow = (cache, result) => {
-    const { data: { follow: { ok } } } = result;
-    if (ok) {
-      const usersId = `User:${data.getUser.id}`;;
-      cache.modify({
-        id: usersId,
-        fields: {
-          isFollowing(prev) {
-            return !prev;
-          },
-          totalFollowerNum(prev) {
-            if (data.getUser.isFollowing) {
-              return prev - 1;
-            } else {
-              return prev + 1;
-            }
-          }
-        }
-      })
-    }
-  }
-
-  const toggleSubscribe = async () => {
-    await followMutation({ variables: { username: data.getUser.username }, update: updateFollow });
-  }
 
   if (loading) {
     return <h1>Loading...</h1>
@@ -80,7 +52,7 @@ const UserDetail = () => {
         </div>
         <div className="channel-button__container">
           {
-            data.getUser.isMe ? null : <SubscribeBtn isFollowing={data.getUser.isFollowing} onClick={toggleSubscribe} loading={mutationLoading} />
+            data.getUser.isMe ? null : <SubscribeBtn id={data.getUser.id} username={data.getUser.username} isFollowing={data.getUser.isFollowing} />
           }
         </div>
       </div>

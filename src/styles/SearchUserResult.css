@@ -1,0 +1,96 @@
+.search-user__container {
+  max-width: 1200px;
+  width: 100%;
+  height: 170px;
+  margin: 5px 0px;
+  display: grid;
+  grid-template-columns: 0.8fr 2fr 90px;
+  grid-template-rows: 1fr;
+  border-bottom: 0.5px solid #c9c9c9;
+}
+
+.search-user__avatar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-avatar__img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: pink;
+}
+
+.search-user__info {
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.search-user__button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.user-info__username {
+  margin-bottom: 10px;
+}
+
+.user-info__username span {
+  font-size: 1.2rem;
+}
+
+.user-info__counts span {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.user-info__following {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .search-user__container {
+    width: 100%;
+    height: 120px;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 1fr;
+  }
+  .user-avatar__img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: pink;
+  }
+
+  .user-info__username {
+    margin-bottom: 3px;
+  }
+
+  .user-info__username span {
+    font-size: 1rem;
+  }
+  
+  .user-info__counts span {
+    font-size: 0.8rem;
+    color: gray;
+  }
+
+  .user-info__following {
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 3px;
+    cursor: pointer;
+  }
+  .search-user__button {
+    display: none;
+  }
+}

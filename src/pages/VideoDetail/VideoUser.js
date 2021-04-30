@@ -1,40 +1,11 @@
-import { useMutation } from "@apollo/client";
 import { useState } from "react"
 import { Link } from "react-router-dom";
 import EditBtn from "../../components/EditBtn";
 import SubscribeBtn from "../../components/SubscribeBtn";
-import { FOLLOW } from "../../sharedGQL/followGql";
 import "../../styles/EditBtn.css";
 
 const VideoUser = ({ videoId, userId, avatar, username, description, isMe, isFollowing, followers, title }) => {
   const [more, setMore] = useState(false);
-  const [followMutation, { loading }] = useMutation(FOLLOW);
-
-  const updateFollow = (cache, result) => {
-    const { data: { follow: { ok } } } = result;
-    if (ok) {
-      const usersId = `User:${userId}`;
-      cache.modify({
-        id: usersId,
-        fields: {
-          isFollowing(prev) {
-            return !prev;
-          },
-          totalFollowerNum(prev) {
-            if (isFollowing) {
-              return prev - 1;
-            } else {
-              return prev + 1;
-            }
-          }
-        }
-      })
-    }
-  }
-
-  const toggleSubscribe = async () => {
-    await followMutation({ variables: { username }, update: updateFollow });
-  }
 
   return (
     <div className="video-user__container">
@@ -74,7 +45,7 @@ const VideoUser = ({ videoId, userId, avatar, username, description, isMe, isFol
         {
           isMe ? <>
             <EditBtn title={title} videoId={videoId} isMe={isMe} description={description} />
-          </> : <SubscribeBtn isFollowing={isFollowing} onClick={toggleSubscribe} loading={loading} />
+          </> : <SubscribeBtn id={userId} username={username} isFollowing={isFollowing} />
         }
       </div>
     </div>
