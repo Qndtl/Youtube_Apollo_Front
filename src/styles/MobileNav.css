@@ -1,4 +1,4 @@
-.mobileNav {
+.mobile-nav {
   width: 100%;
   height: 100vh;
   background-color: black;
@@ -7,6 +7,7 @@
   top: 0;
   left: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -18,9 +19,19 @@
   right: 20px;
 }
 
-.mobileLi {
+.mobile-li {
   color: white;
   list-style: none;
   font-size: 3.5rem;
   margin: 50px 0px;
+}
+
+.mobile-nav__form {
+  width: 60%;
+}
+
+.mobile-nav__input {
+  height: 30px;
+  padding-left: 10px;
+  font-size: 1.1rem;
 }

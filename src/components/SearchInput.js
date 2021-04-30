@@ -2,8 +2,6 @@ import { useState } from "react";
 import { useHistory } from "react-router";
 import "../styles/searchInput.css";
 
-
-
 const SearchInput = () => {
   const [term, setTerm] = useState('');
   const history = useHistory();

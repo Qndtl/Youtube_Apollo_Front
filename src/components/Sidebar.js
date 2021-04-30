@@ -1,10 +1,12 @@
+import { useHistory } from "react-router";
 import "../styles/Sidebar.css";
 import { Compass, FollowIcon, HomeIcon } from "./Icons";
 
 const Sidebar = ({ clicked, setClicked }) => {
+  const history = useHistory();
   return (
     <div className="sidebar-container">
-      <div className={clicked === 'home' ? "sidebar-icon clicked" : "sidebar-icon"} onClick={() => setClicked("home")}>
+      <div className={clicked === 'home' ? "sidebar-icon clicked" : "sidebar-icon"} onClick={() => { setClicked("home"); history.push('/') }}>
         <HomeIcon />
         <span>홈</span>
       </div>

@@ -20,50 +20,40 @@ const App = () => {
   return (
     <Router>
       <Header setPop={setPop} />
-      <Switch>
-        <Route exact path="/">
-          <SidebarLayout pop={pop} setPop={setPop}>
+      <SidebarLayout pop={pop} setPop={setPop}>
+        <Switch>
+          <Route exact path="/">
             <Home />
-          </SidebarLayout>
-        </Route>
-        <Route path="/signup">
-          {
-            isLoggedIn ? <Redirect to='/' /> : <Signup />
-          }
-        </Route>
-        <Route path="/login">
-          {
-            isLoggedIn ? <Redirect to='/' /> : <Login />
-          }
-        </Route>
-        <Route path="/upload">
-          {
-            isLoggedIn ? <SidebarLayout pop={pop} setPop={setPop}>
-              <Upload />
-            </SidebarLayout> : <Redirect to='/' />
-          }
-        </Route>
-        <Route path="/video/:id">
-          <SidebarLayout pop={pop} setPop={setPop}>
+          </Route>
+          <Route path="/signup">
+            {
+              isLoggedIn ? <Redirect to='/' /> : <Signup />
+            }
+          </Route>
+          <Route path="/login">
+            {
+              isLoggedIn ? <Redirect to='/' /> : <Login />
+            }
+          </Route>
+          <Route path="/upload">
+            {
+              isLoggedIn ? <Upload /> : <Redirect to='/' />
+            }
+          </Route>
+          <Route path="/video/:id">
             <VideoDetail />
-          </SidebarLayout>
-        </Route>
-        <Route path="/user/:id">
-          <SidebarLayout pop={pop} setPop={setPop}>
+          </Route>
+          <Route path="/user/:id">
             <UserDetail />
-          </SidebarLayout>
-        </Route>
-        <Route path="/edit/video/:id">
-          <SidebarLayout pop={pop} setPop={setPop}>
+          </Route>
+          <Route path="/edit/video/:id">
             <EditVideo />
-          </SidebarLayout>
-        </Route>
-        <Route path="/search">
-          <SidebarLayout pop={pop} setPop={setPop}>
+          </Route>
+          <Route path="/search">
             <SearchResult />
-          </SidebarLayout>
-        </Route>
-      </Switch>
+          </Route>
+        </Switch>
+      </SidebarLayout>
     </Router>
   );
 }
