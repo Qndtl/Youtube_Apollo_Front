@@ -1,11 +1,11 @@
-.login-container {
-  height: calc(100vh - 115px);
+.edit-video__container {
+  height: calc(100vh - 112px);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.login-form {
+.edit-video__form {
   padding: 50px;
   background-color: white;
   display: flex;
@@ -13,7 +13,14 @@
   width: 300px;
 }
 
-.login-email__input, .login-password__input {
+.edit-video__form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.edit-video__form input {
   margin-top: 5px;
   height: 30px;
   background-color: #e1e1e1;
@@ -22,19 +29,7 @@
   padding-left: 5px;
 }
 
-.login-form h2{
-  margin-bottom: 20px;
-  color: #CC0000;
-}
-
-.login-form label {
-  display: flex;
-  flex-direction: column;
-  font-weight: 600;
-  margin-top: 20px;
-}
-
-.login-form button {
+.edit-video__form button {
   margin: 20px 0px 10px 0px;
   border: none;
   outline: none;
@@ -43,15 +38,4 @@
   color: white;
   font-size: 1rem;
   font-weight: 600;
-}
-
-.login-error {
-  font-weight: 600;
-  color: #CC0000;
-}
-
-.to-signup__link {
-  font-weight: 600;
-  color: skyblue;
-  cursor: pointer;
 }

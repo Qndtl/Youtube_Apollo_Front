@@ -43,12 +43,13 @@ const Upload = () => {
   return (
     <div className="upload-container">
       <form className="upload-form" onSubmit={onSubmit}>
+        <h2>Upload Video</h2>
         <div className="flex">
           <label className="upload-video__label" htmlFor="video">Select video</label>
           <h4>{file?.name}</h4>
         </div>
         {
-          file !== null && <video width="400">
+          file !== null && <video>
             <source src={URL.createObjectURL(file)} />
           </video>
         }
