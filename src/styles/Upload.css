@@ -1,3 +1,64 @@
-textarea {
+.upload-container {
+  height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-video__label, .upload-thumbnail__label {
+  text-align: center;
+  width: 200px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.upload-form {
+  width: 50%;
+}
+
+.upload-video__input {
+  visibility: hidden;
+}
+
+.upload-thumbnail__input {
+  visibility: hidden;
+}
+
+.upload-title__input {
+  margin-bottom: 20px;
+  height: 30px;
+  outline: none;
+}
+
+.upload-textarea {
   resize: none;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  outline: none;
+}
+
+@media screen and (max-width: 768px) {
+  .upload-form {
+    width: 90%;
+  }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.upload-form button {
+  height: 40px;
+  outline:none;
+  border: none;
+  background-color: steelblue;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 10px;
 }

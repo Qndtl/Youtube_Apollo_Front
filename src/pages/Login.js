@@ -37,13 +37,27 @@ const Login = () => {
     }
   }
   return (
-    <form onSubmit={onSubmit}>
-      <input type="text" placeholder="Email" value={email} onChange={e => { setEmail(e.target.value); setEmailErr(null) }} />
-      {emailErr ? <span style={{ color: "tomato" }}>{emailErr}</span> : null}
-      <input type="text" placeholder="Password" value={password} onChange={e => { setPassword(e.target.value); setPasswordErr(null) }} />
-      {passwordErr ? <span style={{ color: "tomato" }}>{passwordErr}</span> : null}
-      <button>Login</button>
-    </form>
+    <div className="login-container">
+      <form className="login-form" onSubmit={onSubmit}>
+        <h2>LOGIN</h2>
+        <label>
+          EMAIL
+          <input className="login-email__input" type="text" placeholder="Email" value={email} onChange={e => { setEmail(e.target.value); setEmailErr(null) }} />
+        </label>
+        {
+          emailErr ? <span className="login-error">{emailErr}</span> : null
+        }
+        <label>
+          PASSWORD
+          <input className="login-password__input" type="text" placeholder="Password" value={password} onChange={e => { setPassword(e.target.value); setPasswordErr(null) }} />
+        </label>
+        {
+          passwordErr ? <span className="login-error">{passwordErr}</span> : null
+        }
+        <button>Login</button>
+        <span className="to-signup">Don't have an account? <span className="to-signup__link" onClick={() => history.push('/signup')}>Sign Up</span></span>
+      </form>
+    </div>
   )
 }
 

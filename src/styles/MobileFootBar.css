@@ -25,11 +25,11 @@
 }
 
 .isclicked svg{
-  fill: red;
+  fill: #CC0000;
 }
 
 .isclicked span {
-  color: red;
+  color: #CC0000;
 }
 
 @media screen and (max-width: 768px) {

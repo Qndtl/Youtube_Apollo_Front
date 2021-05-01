@@ -9,8 +9,6 @@
 .video-comment__form {
   width: 100%;
   margin-bottom: 20px;
-  display: flex;
-  justify-content: flex-end;
 }
 
 .video-comment__form button {
@@ -18,12 +16,14 @@
 }
 
 .video-comment__textarea {
+  width: 100%;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid black;
   margin-bottom: 20px;
   outline: none;
   font-size: 1rem;
+  resize: none;
 }
 
 .comment-container {

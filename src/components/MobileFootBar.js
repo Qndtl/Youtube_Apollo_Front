@@ -17,7 +17,13 @@ const MobileFootBar = ({ clicked, setClicked }) => {
         <Compass />
         <span>탐색</span>
       </div>
-      <div className="foot-bar__upload" onClick={() => history.push('/upload')}>
+      <div className="foot-bar__upload" onClick={() => {
+        if (isLoggedIn) {
+          history.push('/upload');
+        } else {
+          history.push('/login');
+        }
+      }}>
         <UploadIcon size="36" />
       </div>
       <div className={clicked === 'subscribe' ? "foot-bar__follow isclicked" : "foot-bar__follow"} onClick={() => setClicked("subscribe")}>

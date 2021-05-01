@@ -5,6 +5,7 @@ import { isloggedInVar } from "../../apollo/variables";
 import Comment from "../../components/Comment";
 import { VIDEO } from "../../sharedGQL/videoGql";
 import "../../styles/VideoComment.css";
+import TextareaAutosize from 'react-textarea-autosize';
 
 const CREATE_COMMENT = gql`
   mutation createComment($videoId: Int!, $text: String!){
@@ -35,11 +36,11 @@ const VideoComment = ({ comments, totalCommentNum, videoId }) => {
     <div className="video-comment__container">
       <div className="video-comment__count">댓글 {totalCommentNum}개</div>
       <form className="video-comment__form" onSubmit={onSubmit}>
-        <textarea
+        <TextareaAutosize
           className="video-comment__textarea"
           value={comment}
           onChange={e => setComment(e.target.value)}
-          placeholder="공개 댓글 추가..."></textarea>
+          placeholder="공개 댓글 추가..." />
         {comment === "" ? null : <button>작성</button>}
       </form>
       {
