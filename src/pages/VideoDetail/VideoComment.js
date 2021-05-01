@@ -46,7 +46,9 @@ const VideoComment = ({ comments, totalCommentNum, videoId }) => {
       {
         comments.map(comment => <Comment
           key={comment.id}
+          commentId={comment.id}
           text={comment.text}
+          videoId={videoId}
           userId={comment.user.id}
           username={comment.user.username}
           avatar={comment.user.avatar}

@@ -1,0 +1,47 @@
+
+.comment-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.comment-user__avatar {
+  width: 50px;
+}
+
+.comment-user__avatar img {
+  width: 48px;
+  height: 48px;
+  background-color: pink;
+  border-radius: 50%;
+}
+
+.comment-user__text {
+  width: 85%;
+}
+
+.comment-username {
+  font-weight: 600;
+}
+
+.comment-modify {
+  width: 80px;
+}
+
+.comment-modify button {
+  border: none;
+  outline: none;
+  background-color: red;
+  padding: 3px 5px;
+  color: white;
+  font-weight:600;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .comment-user__text{
+    width: 75%;
+  }
+}
