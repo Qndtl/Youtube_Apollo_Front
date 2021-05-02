@@ -5,7 +5,7 @@ import { isloggedInVar } from '../apollo/variables';
 import '../styles/MobileNav.css';
 import { Cross } from './Icons';
 
-const MobileNav = ({ setClicked }) => {
+const MobileNav = ({ setHamburgerClicked }) => {
   const isLoggedIn = useReactiveVar(isloggedInVar);
   const [term, setTerm] = useState("");
   const history = useHistory();
@@ -13,12 +13,12 @@ const MobileNav = ({ setClicked }) => {
   const onSubmit = e => {
     e.preventDefault();
     history.push(`/search?term=${term}`);
-    setClicked(false);
+    setHamburgerClicked(false);
   }
 
   return (
     <nav className="mobile-nav">
-      <div className="cross" onClick={() => setClicked(false)}><Cross /></div>
+      <div className="cross" onClick={() => setHamburgerClicked(false)}><Cross size="20" /></div>
       <form className="mobile-nav__form" onSubmit={onSubmit}>
         <input placeholder="검색" className="mobile-nav__input" type="text" value={term} onChange={e => setTerm(e.target.value)} />
         <button style={{ visibility: "hidden" }}></button>
@@ -26,8 +26,8 @@ const MobileNav = ({ setClicked }) => {
       <ul className="mobile-ul">
         {
           !isLoggedIn && <>
-            <li className="mobile-li" onClick={() => setClicked(false)}><Link to="/signup">Signup</Link></li>
-            <li className="mobile-li" onClick={() => setClicked(false)}><Link to='/login'>Login</Link></li>
+            <li className="mobile-li" onClick={() => setHamburgerClicked(false)}><Link to="/signup">Join</Link></li>
+            <li className="mobile-li" onClick={() => setHamburgerClicked(false)}><Link to='/login'>Login</Link></li>
           </>
         }
       </ul>

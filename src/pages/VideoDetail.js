@@ -5,10 +5,15 @@ import VideoUser from "./VideoDetail/VideoUser";
 import VideoComment from "./VideoDetail/VideoComment";
 import VideoDetails from "./VideoDetail/VideoDetails";
 import { VIDEO } from "../sharedGQL/videoGql";
+import { useEffect } from "react";
 
-const VideoDetail = () => {
+const VideoDetail = ({ setClicked }) => {
   const { id } = useParams();
   const { data, loading } = useQuery(VIDEO, { variables: { id: parseInt(id) } });
+
+  useEffect(() => {
+    setClicked(false);
+  }, [setClicked])
   if (!loading) { console.log(data) }
   if (loading) {
     return <h1>Loading video...</h1>

@@ -9,9 +9,9 @@ import { Hamburger, ThinHamburger, Youtube } from './Icons';
 import MobileNav from './MobileNav';
 import SearchInput from './SearchInput';
 
-const Header = ({ setPop }) => {
+const Header = ({ setPop, setClicked }) => {
   const isLoggedIn = useReactiveVar(isloggedInVar);
-  const [clicked, setClicked] = useState(false);
+  const [hamburgerClicked, setHamburgerClicked] = useState(false);
   const { data } = useUser();
   return (
     <>
@@ -20,9 +20,9 @@ const Header = ({ setPop }) => {
           <div className="thin-hamburger" onClick={() => setPop(true)}>
             <ThinHamburger size="19" />
           </div>
-          <Link to='/'><div className="logo"><Youtube size="30" /><h1>Youtube</h1></div></Link>
+          <Link to={'/'}><div className="logo"><Youtube size="30" /><h1>Youtube</h1></div></Link>
           <SearchInput />
-          <ul className="navUl">
+          <ul className="nav-ul">
             {
               isLoggedIn ? <>
                 <Link to={`/user/${data?.me?.id}`}>
@@ -38,17 +38,17 @@ const Header = ({ setPop }) => {
                 </span>
                 <Button text="Logout" color="red" onClick={() => logUserOut()} />
               </> : <>
-                <Link to='/signup'><li className="navLi"><Button text="Join" color="skyblue" /></li></Link>
-                <Link to='/login'><li className="navLi"><Button text="Login" color="green" /></li></Link>
+                <Link to='/signup'><li className="nav-li"><Button text="Join" color="skyblue" /></li></Link>
+                <Link to='/login'><li className="nav-li"><Button text="Login" color="green" /></li></Link>
               </>
             }
           </ul>
         </nav>
-        <div className="hamburger" onClick={() => setClicked(true)}>
+        <div className="hamburger" onClick={() => setHamburgerClicked(true)}>
           <Hamburger />
         </div>
         {
-          clicked ? <MobileNav setClicked={setClicked} /> : null
+          hamburgerClicked ? <MobileNav setHamburgerClicked={setHamburgerClicked} /> : null
         }
       </header>
     </>

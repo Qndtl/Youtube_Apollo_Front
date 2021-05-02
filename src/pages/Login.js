@@ -1,5 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { logUserIn } from "../apollo/variables";
 import '../styles/login.css';
@@ -14,13 +14,16 @@ const LOGIN = gql`
   }
 `;
 
-const Login = () => {
+const Login = ({ setClicked }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailErr, setEmailErr] = useState(null);
   const [passwordErr, setPasswordErr] = useState(null);
   const [loginMutation] = useMutation(LOGIN);
   const history = useHistory();
+  useEffect(() => {
+    setClicked(false);
+  }, [setClicked])
   const onSubmit = async (e) => {
     e.preventDefault();
     const { data: { login: { ok, error, token } } } = await loginMutation({ variables: { email, password } });

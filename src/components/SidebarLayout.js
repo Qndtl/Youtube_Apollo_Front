@@ -1,11 +1,9 @@
-import { useState } from "react";
 import PopSidebar from "./PopSidebar";
 import Sidebar from "./Sidebar";
 import "../styles/SidebarLayout.css";
 import MobileFootBar from "./MobileFootBar";
 
-const SidebarLayout = ({ children, pop, setPop }) => {
-  const [clicked, setClicked] = useState("home");
+const SidebarLayout = ({ children, pop, setPop, clicked, setClicked }) => {
   return (
     <>
       <Sidebar clicked={clicked} setClicked={setClicked} />

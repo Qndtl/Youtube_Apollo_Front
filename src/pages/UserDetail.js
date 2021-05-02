@@ -1,4 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
+import { useEffect } from "react";
 import { useParams } from "react-router";
 import SubscribeBtn from "../components/SubscribeBtn";
 import Video from "../components/Video";
@@ -23,7 +24,10 @@ const GET_USER = gql`
   }
 `;
 
-const UserDetail = () => {
+const UserDetail = ({ setClicked }) => {
+  useEffect(() => {
+    setClicked(false);
+  }, [setClicked])
   const { id } = useParams();
   const { data, loading } = useQuery(GET_USER, { variables: { id: parseInt(id) } });
 

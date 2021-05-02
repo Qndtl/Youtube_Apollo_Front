@@ -1,26 +1,37 @@
 .search-container {
-  position: absolute;
-  top: 15px;
-  left: 25vw;
+  margin-left: 3vw;
 }
 
 .search-form {
-  width: 30vw;
+  width: 35vw;
+  display: flex;
 }
 
 .search-input {
+  box-sizing: border-box;
+  width: 100%;
   padding-left: 10px;
-  height: 25px;
+  height: 30px;
   font-size: 1.1rem;
+  border: none;
+  border: 1px solid #aaaaaa;
 }
 
 .search-button {
-  visibility: hidden;
+  border: 1px solid gray;
+  border: none;
+  border: 1px solid #aaaaaa;
+  border-left: none;
+}
+
+.search-button svg {
+  width: 40px;
+  fill: gray;
 }
 
 @media screen and (max-width: 840px){
   .search-form {
-    width: 25vw;
+    width: 30vw;
   }
 }
 

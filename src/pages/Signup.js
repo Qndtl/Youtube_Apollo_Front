@@ -1,5 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import "../styles/Signup.css";
 
@@ -12,7 +12,7 @@ const CREATE_USER = gql`
   }
 `;
 
-const Signup = () => {
+const Signup = ({ setClicked }) => {
   const history = useHistory();
 
   const [email, setEmail] = useState("");
@@ -24,6 +24,10 @@ const Signup = () => {
   const [usernameError, setUsernameError] = useState(null);
 
   const [createUserMutation] = useMutation(CREATE_USER);
+
+  useEffect(() => {
+    setClicked(false);
+  }, [setClicked])
 
   const onSubmit = async (e) => {
     e.preventDefault();

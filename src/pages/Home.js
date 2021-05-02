@@ -1,4 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
+import { useEffect } from "react";
 import Video from "../components/Video";
 import '../styles/Home.css';
 
@@ -18,7 +19,11 @@ export const VIDEOS = gql`
   }
 `;
 
-const Home = () => {
+const Home = ({ setClicked }) => {
+  useEffect(() => {
+    setClicked('home');
+  }, [setClicked])
+
   const { data, loading } = useQuery(VIDEOS);
   if (!loading) { console.log(data) }
 
@@ -29,7 +34,7 @@ const Home = () => {
   return (
     <div className="videos">
       {
-        data.videos.map((video, i) => <Video
+        data.videos.map(video => <Video
           key={video.id}
           id={video.id}
           src={video.file}

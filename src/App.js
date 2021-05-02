@@ -17,22 +17,23 @@ import SearchResult from './pages/SearchResult';
 const App = () => {
   const isLoggedIn = useReactiveVar(isloggedInVar);
   const [pop, setPop] = useState(null);
+  const [clicked, setClicked] = useState("home");
   return (
     <Router>
       <Header setPop={setPop} />
-      <SidebarLayout pop={pop} setPop={setPop}>
+      <SidebarLayout pop={pop} setPop={setPop} clicked={clicked} setClicked={setClicked}>
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home setClicked={setClicked} />
           </Route>
           <Route path="/signup">
             {
-              isLoggedIn ? <Redirect to='/' /> : <Signup />
+              isLoggedIn ? <Redirect to='/' /> : <Signup setClicked={setClicked} />
             }
           </Route>
           <Route path="/login">
             {
-              isLoggedIn ? <Redirect to='/' /> : <Login />
+              isLoggedIn ? <Redirect to='/' /> : <Login setClicked={setClicked} />
             }
           </Route>
           <Route path="/upload">
@@ -41,16 +42,16 @@ const App = () => {
             }
           </Route>
           <Route path="/video/:id">
-            <VideoDetail />
+            <VideoDetail setClicked={setClicked} />
           </Route>
           <Route path="/user/:id">
-            <UserDetail />
+            <UserDetail setClicked={setClicked} />
           </Route>
           <Route path="/edit/video/:id">
             <EditVideo />
           </Route>
           <Route path="/search">
-            <SearchResult />
+            <SearchResult setClicked={setClicked} />
           </Route>
         </Switch>
       </SidebarLayout>

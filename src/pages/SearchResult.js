@@ -2,6 +2,7 @@ import { useLocation } from "react-router";
 import { gql, useQuery } from "@apollo/client";
 import SearchUserResult from "../components/SearchUserResult";
 import SearchVideoResult from "../components/SearchVideoResult";
+import { useEffect } from "react";
 
 const SEARCH = gql`
   query search($term: String!){
@@ -28,7 +29,10 @@ const SEARCH = gql`
   }
 `;
 
-const SearchResult = () => {
+const SearchResult = ({ setClicked }) => {
+  useEffect(() => {
+    setClicked(false);
+  }, [setClicked])
   const location = useLocation();
   const { data } = useQuery(SEARCH, { variables: { term: location.search.split("term=")[1] } })
   console.log(data);

@@ -23,16 +23,21 @@
 .mobile-li {
   color: white;
   list-style: none;
-  font-size: 3.5rem;
+  font-size: 3rem;
   margin: 50px 0px;
 }
 
 .mobile-nav__form {
-  width: 60%;
+  width: 70%;
 }
 
 .mobile-nav__input {
+  box-sizing: border-box;
+  width: 100%;
   height: 30px;
   padding-left: 10px;
   font-size: 1.1rem;
+  border: none;
+  outline: none;
+  border-radius: 15px;
 }

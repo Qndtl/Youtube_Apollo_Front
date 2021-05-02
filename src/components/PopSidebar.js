@@ -19,10 +19,12 @@ const PopSidebar = ({ pop, setPop, clicked, setClicked }) => {
           </Link>
         </div>
         <div className="pop-body">
-          <div className={clicked === "home" ? "pop-body__row clicked" : "pop-body__row"} onClick={() => setClicked("home")}>
-            <HomeIcon />
-            <span>홈</span>
-          </div>
+          <Link to='/'>
+            <div className={clicked === "home" ? "pop-body__row clicked" : "pop-body__row"} onClick={() => setClicked("home")}>
+              <HomeIcon />
+              <span>홈</span>
+            </div>
+          </Link>
           <div className={clicked === "explore" ? "pop-body__row clicked" : "pop-body__row"} onClick={() => setClicked("explore")}>
             <Compass />
             <span>탐색</span>
