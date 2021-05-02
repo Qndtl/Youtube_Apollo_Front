@@ -14,7 +14,7 @@ const PopSidebar = ({ pop, setPop, clicked, setClicked }) => {
           <Link to='/'>
             <div className="pop-logo">
               <Youtube size="30" />
-              <h2 onClick={() => setPop(false)}>Youtube</h2>
+              <h2 onClick={() => setPop(false)}>Duktube</h2>
             </div>
           </Link>
         </div>

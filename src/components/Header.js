@@ -20,7 +20,7 @@ const Header = ({ setPop }) => {
           <div className="thin-hamburger" onClick={() => setPop(true)}>
             <ThinHamburger size="19" />
           </div>
-          <Link to={'/'}><div className="logo"><Youtube size="30" /><h1>Youtube</h1></div></Link>
+          <Link to={'/'}><div className="logo"><Youtube size="30" /><h1>Duktube</h1></div></Link>
           <SearchInput />
           <ul className="nav-ul">
             {

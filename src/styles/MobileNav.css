@@ -29,6 +29,8 @@
 
 .mobile-nav__form {
   width: 70%;
+  position: absolute;
+  top: 20%;
 }
 
 .mobile-nav__input {
