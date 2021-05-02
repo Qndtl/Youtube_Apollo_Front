@@ -71,6 +71,7 @@ const EditVideo = () => {
   const onDelete = async e => {
     e.preventDefault();
     await deleteVideoMutation({ variables: { videoId: location?.state?.videoId }, update: updateDeleteVideo });
+    history.push('/')
   }
 
   return (

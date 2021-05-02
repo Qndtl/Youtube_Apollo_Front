@@ -10,6 +10,8 @@ export const VIDEOS = gql`
       file,
       title,
       thumbnail,
+      createdAt,
+      view,
       user{
         id,
         username,
@@ -42,7 +44,9 @@ const Home = ({ setClicked }) => {
           thumnail={video.thumbnail}
           username={video.user.username}
           userId={video.user.id}
-          avatar={video.user.avatar} />)
+          avatar={video.user.avatar}
+          view={video.view}
+          createdAt={video.createdAt} />)
       }
     </div>
   )

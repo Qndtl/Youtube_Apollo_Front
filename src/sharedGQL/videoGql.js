@@ -5,7 +5,9 @@ export const VIDEO = gql`
     video(videoId: $id){
       id,
       file,
+      view,
       title,
+      createdAt,
       description,
       isLiked,
       totalLikeNum,

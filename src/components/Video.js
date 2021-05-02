@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import '../styles/Video.css';
 
-const Video = ({ id, src, title, username, userId, avatar, thumbnail }) => {
+const Video = ({ id, src, title, username, userId, avatar, thumbnail, view, createdAt }) => {
+  const date = new Date(parseInt(createdAt));
   const mouseEnter = (e) => {
     const playPromise = e.target.play();
     if (playPromise !== undefined) {
@@ -31,7 +32,7 @@ const Video = ({ id, src, title, username, userId, avatar, thumbnail }) => {
           <Link to={`/user/${userId}`}>
             <div className="username">{username}</div>
           </Link>
-          <div className="view-count">조회수</div>
+          <div className="view-count">조회수 {view} &#183; {date.getFullYear()}.{date.getMonth() + 1}.{date.getDate()}</div>
         </div>
       </div>
     </div>

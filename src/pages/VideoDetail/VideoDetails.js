@@ -10,7 +10,8 @@ const TOGGLE_LIKE = gql`
   }
 `;
 
-const VideoDetails = ({ videoId, title, isLiked, totalLikeNum }) => {
+const VideoDetails = ({ videoId, title, isLiked, totalLikeNum, view, createdAt }) => {
+  const date = new Date(parseInt(createdAt));
   const updateToggleLike = (cache, result) => {
     const { data: { toggleLike: { ok } } } = result;
     if (ok) {
@@ -48,7 +49,7 @@ const VideoDetails = ({ videoId, title, isLiked, totalLikeNum }) => {
         <span>{title}</span>
       </div>
       <div className="video-info">
-        <span>조회수 0회 &#183; 2020.8.16</span>
+        <span>조회수 {view}회 &#183; {date.getFullYear()}.{date.getMonth() + 1}.{date.getDate()}</span>
         <div
           className={isLiked ? "video-info__icons liked" : "video-info__icons"}
           onClick={clickLike}>
