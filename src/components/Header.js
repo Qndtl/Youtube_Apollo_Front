@@ -9,7 +9,7 @@ import { Hamburger, ThinHamburger, Youtube } from './Icons';
 import MobileNav from './MobileNav';
 import SearchInput from './SearchInput';
 
-const Header = ({ setPop, setClicked }) => {
+const Header = ({ setPop }) => {
   const isLoggedIn = useReactiveVar(isloggedInVar);
   const [hamburgerClicked, setHamburgerClicked] = useState(false);
   const { data } = useUser();

@@ -18,6 +18,7 @@ const MobileFootBar = ({ clicked, setClicked }) => {
         <span>탐색</span>
       </div>
       <div className="foot-bar__upload" onClick={() => {
+        setClicked(false);
         if (isLoggedIn) {
           history.push('/upload');
         } else {

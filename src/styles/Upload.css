@@ -12,12 +12,11 @@
 
 .upload-video__label, .upload-thumbnail__label {
   text-align: center;
-  width: 200px;
+  width: 100%;
   padding: 5px;
   border: 1px solid black;
   border-radius: 5px;
   cursor: pointer;
-  margin-right: 20px;
   margin-bottom: 10px;
 }
 
