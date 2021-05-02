@@ -3,7 +3,9 @@ import { createUploadLink } from 'apollo-upload-client';
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createUploadLink({
-  uri: "http://localhost:4000/graphql"
+  uri: process.env.NODE_ENV === "production" ?
+    "https://youtube-clone-apollo.herokuapp.com/graphql" :
+    "http://localhost:4000/graphql"
 })
 
 const authLink = setContext((_, { headers }) => {
