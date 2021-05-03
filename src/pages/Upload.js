@@ -53,7 +53,7 @@ const Upload = () => {
             <source src={URL.createObjectURL(file)} />
           </video>
         }
-        <input className="upload-video__input" id="video" type="file" onChange={e => setFile(e.target.files[0])} />
+        <input className="upload-video__input" id="video" type="file" accept="video/*" onChange={e => setFile(e.target.files[0])} />
         <div className="flex">
           <label className="upload-thumbnail__label" htmlFor="thumbnail">Select Thumbnail</label>
           <h4>{thumbnail?.name}</h4>
@@ -61,7 +61,7 @@ const Upload = () => {
         {
           thumbnail !== null && <img src={URL.createObjectURL(thumbnail)} alt="thumbnail" />
         }
-        <input className="upload-thumbnail__input" id="thumbnail" type="file" onChange={e => setThumbnail(e.target.files[0])} />
+        <input className="upload-thumbnail__input" id="thumbnail" type="file" accept=".gif, .png, .jpg" onChange={e => setThumbnail(e.target.files[0])} />
         <input
           required
           placeholder="Title of video"

@@ -18,7 +18,8 @@ const GET_USER = gql`
         id,
         file,
         title,
-        thumbnail
+        thumbnail,
+        createdAt
       }
     }
   }
@@ -70,7 +71,8 @@ const UserDetail = ({ setClicked }) => {
             thumnail={video.thumbnail}
             username={data.getUser.username}
             userId={data.getUser.id}
-            avatar={data.getUser.avatar} />)
+            avatar={data.getUser.avatar}
+            createdAt={video.createdAt} />)
         }
       </div>
     </>

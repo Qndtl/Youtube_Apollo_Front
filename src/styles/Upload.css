@@ -57,7 +57,12 @@
 
 .flex {
   display: flex;
+  flex-direction: column;
   align-items: center;
+}
+
+.flex h4 {
+  margin-bottom: 10px;
 }
 
 .upload-form button {

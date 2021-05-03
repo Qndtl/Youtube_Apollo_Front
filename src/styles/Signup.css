@@ -58,3 +58,9 @@
   color: skyblue;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .to-login {
+    font-size: 0.9rem;
+  }
+}

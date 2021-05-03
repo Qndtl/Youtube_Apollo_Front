@@ -45,14 +45,14 @@ const Login = ({ setClicked }) => {
         <h2>LOGIN</h2>
         <label>
           EMAIL
-          <input className="login-email__input" type="text" placeholder="Email" value={email} onChange={e => { setEmail(e.target.value); setEmailErr(null) }} />
+          <input className="login-email__input" type="email" placeholder="Email" value={email} onChange={e => { setEmail(e.target.value); setEmailErr(null) }} />
         </label>
         {
           emailErr ? <span className="login-error">{emailErr}</span> : null
         }
         <label>
           PASSWORD
-          <input className="login-password__input" type="text" placeholder="Password" value={password} onChange={e => { setPassword(e.target.value); setPasswordErr(null) }} />
+          <input className="login-password__input" type="password" placeholder="Password" value={password} onChange={e => { setPassword(e.target.value); setPasswordErr(null) }} />
         </label>
         {
           passwordErr ? <span className="login-error">{passwordErr}</span> : null

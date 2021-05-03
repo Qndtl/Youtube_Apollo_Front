@@ -50,7 +50,7 @@ const Signup = ({ setClicked }) => {
         <h2>Sign Up</h2>
         <label>
           Email
-          <input className="signup-email__input" type="text" placeholder="Email" value={email} onChange={(e) => { setEmail(e.target.value); setEmailError(null) }} />
+          <input className="signup-email__input" type="email" placeholder="Email" value={email} onChange={(e) => { setEmail(e.target.value); setEmailError(null) }} />
         </label>
         {
           emailError ? <span className="signup-error">{emailError}</span> : null
@@ -68,7 +68,7 @@ const Signup = ({ setClicked }) => {
         </label>
         <label>
           Password
-          <input className="signup-password__input" type="text" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <input className="signup-password__input" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
         <button>Sign Up</button>
         <span className="to-login">Already have an account? <span className="to-login__link" onClick={() => history.push('/login')}>Login</span></span>
