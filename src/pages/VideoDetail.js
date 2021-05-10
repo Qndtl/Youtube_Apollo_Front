@@ -7,6 +7,7 @@ import VideoDetails from "./VideoDetail/VideoDetails";
 import { VIDEO } from "../sharedGQL/videoGql";
 import { useEffect } from "react";
 import MainVideo from "../components/MainVideo";
+import Loader from "../components/Loader";
 
 const VideoDetail = ({ setClicked }) => {
   const { id } = useParams();
@@ -17,7 +18,7 @@ const VideoDetail = ({ setClicked }) => {
   }, [setClicked])
 
   if (loading) {
-    return <h1>Loading video...</h1>
+    return <Loader />
   }
 
   if (!loading) {

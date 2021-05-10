@@ -1,6 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { useEffect } from "react";
 import { useParams } from "react-router";
+import Loader from "../components/Loader";
 import SubscribeBtn from "../components/SubscribeBtn";
 import Video from "../components/Video";
 import "../styles/UserDetail.css";
@@ -33,7 +34,7 @@ const UserDetail = ({ setClicked }) => {
   const { data, loading } = useQuery(GET_USER, { variables: { id: parseInt(id) } });
 
   if (loading) {
-    return <h1>Loading...</h1>
+    return <Loader />
   }
 
   if (!loading) {
