@@ -1,5 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
 import { useEffect, useState } from "react";
+import { VIDEO } from "../sharedGQL/videoGql";
 
 const ADD_VIEW = gql`
   mutation addView($videoId: Int!){
@@ -13,7 +14,7 @@ const ADD_VIEW = gql`
 const MainVideo = ({ video, videoId }) => {
   const [duration, setDuration] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [addViewMutation] = useMutation(ADD_VIEW);
+  const [addViewMutation] = useMutation(ADD_VIEW, { refetchQueries: [{ query: VIDEO, variables: { id: videoId } }] });
 
   const handleMetadata = e => {
     const duration = e.target.duration;
