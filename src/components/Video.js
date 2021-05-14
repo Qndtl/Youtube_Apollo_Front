@@ -18,7 +18,9 @@ const Video = ({ id, src, title, username, userId, avatar, thumbnail, view, crea
   }
   return (
     <div className="container">
-      <Link to={`/video/${id}`}><video src={src} muted onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} poster={thumbnail} /></Link>
+      <div className="video-container">
+        <Link to={`/video/${id}`}><video src={src} muted onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} poster={thumbnail} /></Link>
+      </div>
       <div className="text-container">
         <div className="row">
           <Link to={`/user/${userId}`}>

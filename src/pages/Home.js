@@ -42,7 +42,7 @@ const Home = ({ setClicked }) => {
           id={video.id}
           src={video.file}
           title={video.title}
-          thumnail={video.thumbnail}
+          thumbnail={video.thumbnail}
           username={video.user.username}
           userId={video.user.id}
           avatar={video.user.avatar}
