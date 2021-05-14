@@ -45,17 +45,17 @@ const Upload = () => {
       <form className="upload-form" onSubmit={onSubmit}>
         <h2>Upload Video</h2>
         <div className="flex">
-          <label className="upload-video__label" htmlFor="video">Select video</label>
+          <label className="upload-video__label" htmlFor="video" onClick={() => setFile(null)}>Select video</label>
           <h4>{file?.name}</h4>
         </div>
         {
-          file !== null && <video>
+          file ? <video>
             <source src={URL.createObjectURL(file)} />
-          </video>
+          </video> : null
         }
         <input required className="upload-video__input" id="video" type="file" accept="video/*" onChange={e => setFile(e.target.files[0])} />
         <div className="flex">
-          <label className="upload-thumbnail__label" htmlFor="thumbnail">Select Thumbnail</label>
+          <label className="upload-thumbnail__label" htmlFor="thumbnail" onClick={() => setThumbnail(null)}>Select Thumbnail</label>
           <h4>{thumbnail?.name}</h4>
         </div>
         {
