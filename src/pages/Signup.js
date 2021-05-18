@@ -1,6 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
+import HelmetTitle from "../components/HelmetTitle";
 import "../styles/Signup.css";
 
 const CREATE_USER = gql`
@@ -45,35 +46,38 @@ const Signup = ({ setClicked }) => {
   }
 
   return (
-    <div className="signup-container">
-      <form className="signup-form" onSubmit={onSubmit}>
-        <h2>Sign Up</h2>
-        <label>
-          Email
+    <>
+      <HelmetTitle helmetTitle="Sign Up" />
+      <div className="signup-container">
+        <form className="signup-form" onSubmit={onSubmit}>
+          <h2>Sign Up</h2>
+          <label>
+            Email
           <input className="signup-email__input" type="email" placeholder="Email" value={email} onChange={(e) => { setEmail(e.target.value); setEmailError(null) }} />
-        </label>
-        {
-          emailError ? <span className="signup-error">{emailError}</span> : null
-        }
-        <label>
-          Username
+          </label>
+          {
+            emailError ? <span className="signup-error">{emailError}</span> : null
+          }
+          <label>
+            Username
           <input className="signup-username__input" type="text" placeholder="Username" value={username} onChange={(e) => { setUsername(e.target.value); setUsernameError(null) }} />
-        </label>
-        {
-          usernameError ? <span className="signup-error">{usernameError}</span> : null
-        }
-        <label>
-          Fullname
+          </label>
+          {
+            usernameError ? <span className="signup-error">{usernameError}</span> : null
+          }
+          <label>
+            Fullname
           <input className="signup-fullname__input" type="text" placeholder="Fullname" value={fullname} onChange={(e) => setFullname(e.target.value)} />
-        </label>
-        <label>
-          Password
+          </label>
+          <label>
+            Password
           <input className="signup-password__input" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <button>Sign Up</button>
-        <span className="to-login">Already have an account? <span className="to-login__link" onClick={() => history.push('/login')}>Login</span></span>
-      </form>
-    </div>
+          </label>
+          <button>Sign Up</button>
+          <span className="to-login">Already have an account? <span className="to-login__link" onClick={() => history.push('/login')}>Login</span></span>
+        </form>
+      </div>
+    </>
   )
 }
 

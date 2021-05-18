@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import "../styles/Upload.css";
 import { VIDEOS } from "./Home";
 import TextareaAutosize from 'react-textarea-autosize';
+import HelmetTitle from "../components/HelmetTitle";
 
 const UPLOAD = gql`
   mutation upload($file: Upload!, $thumbnail: Upload!, $title: String!, $description: String!) {
@@ -41,43 +42,46 @@ const Upload = () => {
     history.push('/');
   }
   return (
-    <div className="upload-container">
-      <form className="upload-form" onSubmit={onSubmit}>
-        <h2>Upload Video</h2>
-        <div className="flex">
-          <label className="upload-video__label" htmlFor="video" onClick={() => setFile(null)}>Select video</label>
-          <h4>{file?.name}</h4>
-        </div>
-        {
-          file ? <video>
-            <source src={URL.createObjectURL(file)} />
-          </video> : null
-        }
-        <input required className="upload-video__input" id="video" type="file" accept="video/*" onChange={e => setFile(e.target.files[0])} />
-        <div className="flex">
-          <label className="upload-thumbnail__label" htmlFor="thumbnail" onClick={() => setThumbnail(null)}>Select Thumbnail</label>
-          <h4>{thumbnail?.name}</h4>
-        </div>
-        {
-          thumbnail !== null && <img src={URL.createObjectURL(thumbnail)} alt="thumbnail" />
-        }
-        <input required className="upload-thumbnail__input" id="thumbnail" type="file" accept=".gif, .png, .jpg" onChange={e => setThumbnail(e.target.files[0])} />
-        <input
-          required
-          placeholder="Title of video"
-          type="text"
-          value={title}
-          onChange={e => setTitle(e.target.value)}
-          className="upload-title__input" />
-        <TextareaAutosize
-          required
-          className="upload-textarea"
-          placeholder="Description of video"
-          value={description}
-          onChange={e => setDescription(e.target.value)} />
-        <button>동영상 업로드</button>
-      </form>
-    </div>
+    <>
+      <HelmetTitle helmetTitle="Upload Video" />
+      <div className="upload-container">
+        <form className="upload-form" onSubmit={onSubmit}>
+          <h2>Upload Video</h2>
+          <div className="flex">
+            <label className="upload-video__label" htmlFor="video" onClick={() => setFile(null)}>Select video</label>
+            <h4>{file?.name}</h4>
+          </div>
+          {
+            file ? <video>
+              <source src={URL.createObjectURL(file)} />
+            </video> : null
+          }
+          <input required className="upload-video__input" id="video" type="file" accept="video/*" onChange={e => setFile(e.target.files[0])} />
+          <div className="flex">
+            <label className="upload-thumbnail__label" htmlFor="thumbnail" onClick={() => setThumbnail(null)}>Select Thumbnail</label>
+            <h4>{thumbnail?.name}</h4>
+          </div>
+          {
+            thumbnail !== null && <img src={URL.createObjectURL(thumbnail)} alt="thumbnail" />
+          }
+          <input required className="upload-thumbnail__input" id="thumbnail" type="file" accept=".gif, .png, .jpg" onChange={e => setThumbnail(e.target.files[0])} />
+          <input
+            required
+            placeholder="Title of video"
+            type="text"
+            value={title}
+            onChange={e => setTitle(e.target.value)}
+            className="upload-title__input" />
+          <TextareaAutosize
+            required
+            className="upload-textarea"
+            placeholder="Description of video"
+            value={description}
+            onChange={e => setDescription(e.target.value)} />
+          <button>동영상 업로드</button>
+        </form>
+      </div>
+    </>
   )
 }
 

@@ -1,6 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { useEffect } from "react";
 import { useParams } from "react-router";
+import HelmetTitle from "../components/HelmetTitle";
 import Loader from "../components/Loader";
 import SubscribeBtn from "../components/SubscribeBtn";
 import Video from "../components/Video";
@@ -43,6 +44,7 @@ const UserDetail = ({ setClicked }) => {
 
   return (
     <>
+      <HelmetTitle helmetTitle={`${data?.getUser?.username} - DukTube`} />
       {
         data.getUser.channelImage ? <div className="channel-image">
           <h1>Place for channel image</h1>

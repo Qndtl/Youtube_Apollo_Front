@@ -20,6 +20,7 @@ const SEARCH = gql`
       title
       description
       createdAt
+      view
       user {
         id
         avatar

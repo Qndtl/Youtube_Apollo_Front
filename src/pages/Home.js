@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { useEffect } from "react";
+import HelmetTitle from "../components/HelmetTitle";
 import Loader from "../components/Loader";
 import Video from "../components/Video";
 import '../styles/Home.css';
@@ -35,21 +36,24 @@ const Home = ({ setClicked }) => {
   }
 
   return (
-    <div className="videos">
-      {
-        data.videos.map(video => <Video
-          key={video.id}
-          id={video.id}
-          src={video.file}
-          title={video.title}
-          thumbnail={video.thumbnail}
-          username={video.user.username}
-          userId={video.user.id}
-          avatar={video.user.avatar}
-          view={video.view}
-          createdAt={video.createdAt} />)
-      }
-    </div>
+    <>
+      <HelmetTitle helmetTitle="DukTube" />
+      <div className="videos">
+        {
+          data.videos.map(video => <Video
+            key={video.id}
+            id={video.id}
+            src={video.file}
+            title={video.title}
+            thumbnail={video.thumbnail}
+            username={video.user.username}
+            userId={video.user.id}
+            avatar={video.user.avatar}
+            view={video.view}
+            createdAt={video.createdAt} />)
+        }
+      </div>
+    </>
   )
 }
 

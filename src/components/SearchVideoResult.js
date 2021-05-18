@@ -15,6 +15,7 @@ const SearchVideoResult = ({ video }) => {
       pausePromise.then(() => { return }).catch((err) => console.log(err.message))
     }
   }
+  console.log(video)
   return (
     <div className="search-video__container">
       <div className="search-video__video">
@@ -26,6 +27,7 @@ const SearchVideoResult = ({ video }) => {
         <div className="search-video__title">
           <Link to={`/video/${video.id}`}>
             <span>{video.title}</span>
+            <p className="search-video__view">조회수 {video.view}회</p>
           </Link>
         </div>
         <div className="search-video__user">

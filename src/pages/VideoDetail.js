@@ -8,6 +8,7 @@ import { VIDEO } from "../sharedGQL/videoGql";
 import { useEffect } from "react";
 import MainVideo from "../components/MainVideo";
 import Loader from "../components/Loader";
+import HelmetTitle from "../components/HelmetTitle";
 
 const VideoDetail = ({ setClicked }) => {
   const { id } = useParams();
@@ -24,6 +25,7 @@ const VideoDetail = ({ setClicked }) => {
   if (!loading) {
     return (
       <>
+        <HelmetTitle helmetTitle={`${data?.video?.title} - DukTube`} />
         {
           <>
             <div className="video-container">
