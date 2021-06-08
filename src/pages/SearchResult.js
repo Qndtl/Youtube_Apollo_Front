@@ -13,6 +13,7 @@ const SEARCH = gql`
       totalFollowerNum
       totalVideoNum
       isFollowing
+      isMe
     },
     searchVideo(term: $term) {
       id
@@ -36,7 +37,7 @@ const SearchResult = ({ setClicked }) => {
   }, [setClicked])
   const location = useLocation();
   const { data } = useQuery(SEARCH, { variables: { term: location.search.split("term=")[1] } })
-  console.log(data);
+  //console.log(data);
   return (
     <div className="search-result__container" style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
       {

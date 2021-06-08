@@ -41,7 +41,6 @@ const SearchUserResult = ({ user }) => {
     }
   }
 
-
   return (
     <div className="search-user__container">
       <div className="search-user__avatar">
@@ -63,7 +62,7 @@ const SearchUserResult = ({ user }) => {
         </div>
       </div>
       <div className="search-user__button">
-        <SubscribeBtn id={user.id} username={user.username} isFollowing={user.isFollowing} />
+        {user.isMe ? null : <SubscribeBtn id={user.id} username={user.username} isFollowing={user.isFollowing} />}
       </div>
     </div>
   )

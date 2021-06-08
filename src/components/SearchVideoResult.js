@@ -15,7 +15,7 @@ const SearchVideoResult = ({ video }) => {
       pausePromise.then(() => { return }).catch((err) => console.log(err.message))
     }
   }
-  console.log(video)
+  //console.log(video)
   return (
     <div className="search-video__container">
       <div className="search-video__video">
